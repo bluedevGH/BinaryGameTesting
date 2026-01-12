@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Login - Frontend Only</title>
+    <script src="originChecker.js"></script>
+
+  <!-- Google Identity Services SDK -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <style>
+    body { font-family: sans-serif; padding: 40px; }
+  </style>
+</head>
+
+<body>
+
+  <h2>Google Login Demo (Frontend Only)</h2>
+
+  <!-- Google Login Setup -->
+  <div id="g_id_onload"
+       data-client_id="368695683165-vh1m33kq4thabl69iu2c2im1lb6i8d63.apps.googleusercontent.com"
+       data-callback="handleGoogleResponse"
+       data-auto_prompt="false">
+  </div>
+
+  <!-- The actual Google Sign-In button -->
+  <div class="g_id_signin"
+       data-type="standard"
+       data-size="large"
+       data-theme="outline">
+  </div>
+
+  <pre id="output"></pre>
+
+  <script>
+    // Called when Google sends back the login token
+    function handleGoogleResponse(response) {
+      const token = response.credential;
+
+      document.getElementById("output").innerText =
+        "ID Token:\n" + token + "\n\nDecoding...";
+
+      // Decode the JWT to get user info
+      const payload = JSON.parse(atob(token.split('.')[1]));
+
+      document.getElementById("output").innerText =
+        "User Info:\n" + JSON.stringify(payload, null, 2);
+    }
+  </script>
+
+</body>
+</html>

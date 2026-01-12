@@ -1,0 +1,61 @@
+Documentation for all functions inside FuncModule.js (currently DevonsJSfile.js until I figure out how to rename it)
+
+[Function] createBinary (int: Number)
+Outputs an array of true / false, to be the binary value of a number
+
+Example:
+
+console.log(createBinary()); s
+
+Output:
+[false, true, true, true, false, true, true, false]
+
+(note that this is the binary value of the number 118)
+
+
+
+[Function] randomiseBinaryFunc (Array: Binary Array)
+This requires an array formatted from the previous function, createBinary. 
+It returns another array in the same format. It's randomised between true / false, but will never equal to the array put in.
+
+(useful for inputting random values when creating a row for a question)
+
+Example:
+
+myBinary = createBinary();
+// creates a binary array, 8 values of true or false
+
+myRandomisedBinary = randomiseBinaryFunc(myBinary);
+console.log(myRandomisedBinary); // Will never equal myBinary
+
+
+
+[Function] CreateQuestionButton (Int: Button number, Int: Question number, Bool: Binary Value)
+Creates a button, with an id and a class. This is used to describe an x and y value.
+
+Properties:
+ID = Which button it is on the row (button 0-7)
+Class = Question number (starts at 0, moves up)
+
+WARNING: Recommended not to use on it's own, as it creates a singular button. It's used as part of addRow, and should keep to there.
+
+
+
+[Function] createTextButton (Str: Internal value, Int: Question number)
+Creates a div with the value of the Internal value, and gives it a class with question number
+NOTE: Ensure Internal value is equal to "=" to create an equals box (NO SPACE). Any other value becomes an answer button)
+
+Properties:
+ID = "= div", or "ans div"
+Class = Question number (starts at 0, moves up)
+
+WARNING: Recommended not to use on it's own, as it creates a singular box. It's used as part of addRow, and should keep to there.
+
+
+
+[Function] addRow (Array: Random Binary Array, Int: Actual Number)
+Creates full row of 10 boxes, with 8 buttons, an "=" box and an "answer" box (with the int value of the final number to change to).
+
+Example:
+
+myBinary = 
