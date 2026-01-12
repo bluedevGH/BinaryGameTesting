@@ -20,16 +20,42 @@ ReactDOM.render(
     mouseStrength={0.2}
     brightness={1}
     >
-      <div class="menu-container">
-            <button type="button" onclick="window.location.href='game.html'" id="play">PLAY</button>
-            <button type="button" onclick="window.location.href='host3.html'" id="host">HOST</button>
-            <button type="button" onclick="window.location.href='stats.html'" id="stats">STATS</button>
-            <button type="button" onclick="window.location.href='howtoplay.html'" id="howtoplay">HOW TO PLAY</button>
-            <button type="button" onclick="window.location.href='login.html'" id="logio">LOGIN</button>
-        </div>
+    
+
+      
+      
       </FaultyTerminal>                              
 </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
+const playButton = document.createElement("Button")
+playButton.parentElement = document.getElementsByClassName("menu-container")
+playButton.id = "play";
+playButton.onclick = window.location.assign("game.html");
+playButton.innerHTML = "PLAY;"
+
+const hostButton = document.createElement("Button")
+hostButton.parentElement = document.getElementsByClassName("menu-container")
+hostButton.id = "host";
+hostButton.onclick = window.location.assign("host.html");
+hostButton.innerHTML = "PLAY";
+
+const statsButton = document.createElement("Button")
+statsButton.parentElement = document.getElementsByClassName("menu-container")
+statsButton.id = "stats";
+statsButton.onclick = window.location.assign("stats.html")
+statsButton.innerHTML = "HOST";
+
+const howtoButton = document.createElement("Button")
+howtoButton.parentElement = document.getElementsByClassName("menu-container")
+howtoButton.id = "howtoplay";
+howtoButton.onclick = window.location.assign("howtoplay.html");
+howtoButton.innerHTML = "HOW TO PLAY";
+
+const loginButton = document.createElement("button")
+loginButton.parentElement = document.getElementsByClassName("menu-container")
+loginButton.id = "logio";
+loginButton.onclick = window.location.assign("login.html")
+loginButton.innerHTML = "LOGIN";
